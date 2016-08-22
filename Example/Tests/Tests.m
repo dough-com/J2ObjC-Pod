@@ -8,39 +8,17 @@
 
 // https://github.com/Specta/Specta
 
-SpecBegin(InitialSpecs)
+#import "java/util/ArrayList.h"
 
-describe(@"these will fail", ^{
+SpecBegin(J2ObjCTest)
 
-    it(@"can do maths", ^{
-        expect(1).to.equal(2);
-    });
+describe(@"using j2objc", ^{
 
-    it(@"can read", ^{
-        expect(@"number").to.equal(@"string");
-    });
-    
-    it(@"will wait for 10 seconds and fail", ^{
-        waitUntil(^(DoneCallback done) {
-        
-        });
-    });
-});
+    it(@"allows for using Java's ArrayList", ^{
+        JavaUtilArrayList *arrayList = [[JavaUtilArrayList alloc] init];
+        [arrayList addWithId:@(2)];
 
-describe(@"these will pass", ^{
-    
-    it(@"can do maths", ^{
-        expect(1).beLessThan(23);
-    });
-    
-    it(@"can read", ^{
-        expect(@"team").toNot.contain(@"I");
-    });
-    
-    it(@"will wait and succeed", ^{
-        waitUntil(^(DoneCallback done) {
-            done();
-        });
+        expect([arrayList getWithInt:0]).to.equal(@2);
     });
 });
 
