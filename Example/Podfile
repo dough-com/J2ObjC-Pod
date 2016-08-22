@@ -1,0 +1,7 @@
+use_frameworks!
+target 'J2ObjC-Pod_Tests' do
+  pod 'J2ObjC-Pod', :path => '../'
+  
+  pod 'Specta'
+  pod 'Expecta'
+end
