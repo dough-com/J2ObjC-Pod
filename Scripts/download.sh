@@ -15,6 +15,6 @@ unzip -o -q j2objc-${J2OBJC_VERSION}.zip
 
 J2OBJC_PATH=j2objc-${J2OBJC_VERSION}
 
-mv $J2OBJC_PATH/frameworks dist
 mv $J2OBJC_PATH/include dist
+mv $J2OBJC_PATH/lib dist
 rm j2objc-${J2OBJC_VERSION}.zip
