@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.requires_arc = true
-  s.preserve_paths = 'dist/lib', 'dist/include', 'dist/j2objc', 'dist/j2objcc'
+  s.preserve_paths = 'dist'
 
   s.prepare_command = <<-CMD
     Scripts/download.sh
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
     lib.frameworks = 'Security'
     lib.osx.frameworks = 'ExceptionHandling'
     lib.xcconfig = {
-      'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/J2ObjC-Pod/dist/include"'
+      'HEADER_SEARCH_PATHS' =>  "\"${PODS_ROOT}/#{s.name}/dist/include\""
     }
 
     # lib.subspec 'all' do |all|
