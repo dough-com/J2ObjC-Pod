@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.requires_arc = true
-  s.preserve_paths = 'dist/include', 'dist/lib'
+  s.preserve_paths = 'dist/lib', 'dist/include', 'dist/j2objc', 'dist/j2objcc'
 
   s.prepare_command = <<-CMD
     Scripts/download.sh
