@@ -16,6 +16,9 @@ unzip -o -q j2objc-${J2OBJC_VERSION}.zip
 J2OBJC_PATH=j2objc-${J2OBJC_VERSION}
 
 mkdir dist
-mv $J2OBJC_PATH/include dist
-mv $J2OBJC_PATH/lib dist
+mv  $J2OBJC_PATH/include \
+    $J2OBJC_PATH/lib \
+    $J2OBJC_PATH/j2objc \
+    $J2OBJC_PATH/j2objcc \
+    dist
 rm j2objc-${J2OBJC_VERSION}.zip
