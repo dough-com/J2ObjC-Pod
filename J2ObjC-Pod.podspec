@@ -30,10 +30,10 @@ Pod::Spec.new do |s|
     Scripts/download.sh
   CMD
 
-  s.default_subspec = 'lib/jre'
+  s.default_subspec = 'lib/all'
 
   s.source_files = 'dist/include/**/*.h'
-  s.public_header_files = 'dist/include/**/*.h'
+  # s.public_header_files = 'dist/include/**/*.h'
   s.header_mappings_dir = 'dist/include'
 
   s.subspec 'lib' do |lib|
@@ -43,14 +43,14 @@ Pod::Spec.new do |s|
       'HEADER_SEARCH_PATHS' =>  "\"${PODS_ROOT}/#{s.name}/dist/include\""
     }
 
-    # lib.subspec 'all' do |all|
-    #   all.dependency 'J2ObjC-Pod/lib/jre'
-    #   all.dependency 'J2ObjC-Pod/lib/jsr305'
-    #   all.dependency 'J2ObjC-Pod/lib/guava'
-    #   all.dependency 'J2ObjC-Pod/lib/javax_inject'
-    #   all.dependency 'J2ObjC-Pod/lib/xalan'
-    #   all.dependency 'J2ObjC-Pod/protobuf_runtime'
-    # end
+    lib.subspec 'all' do |all|
+      all.dependency "#{s.name}/lib/jre"
+      # all.dependency 'J2ObjC-Pod/lib/jsr305'
+      # all.dependency 'J2ObjC-Pod/lib/guava'
+      all.dependency "#{s.name}/lib/javax_inject"
+      # all.dependency 'J2ObjC-Pod/lib/xalan'
+      # all.dependency 'J2ObjC-Pod/protobuf_runtime'
+    end
 
     lib.subspec 'jre' do |jre|
       jre.libraries = 'z', 'icucore'
@@ -72,10 +72,10 @@ Pod::Spec.new do |s|
     #   guava.vendored_libraries = 'dist/lib/libguava.a'
     # end
 
-    # lib.subspec 'javax_inject' do |javax_inject|
-    #   javax_inject.dependency 'J2ObjC-Pod/lib/jre'
-    #   javax_inject.vendored_libraries = 'dist/lib/libjavax_inject.a'
-    # end
+    lib.subspec 'javax_inject' do |javax_inject|
+      javax_inject.dependency "#{s.name}/lib/jre"
+      javax_inject.vendored_libraries = 'dist/lib/libjavax_inject.a'
+    end
 
     # lib.subspec 'xalan' do |xalan|
     #   xalan.dependency 'J2ObjC-Pod/lib/jre'
