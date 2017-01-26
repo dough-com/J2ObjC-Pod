@@ -39,8 +39,8 @@ Pod::Spec.new do |s|
   s.subspec 'lib' do |lib|
     lib.frameworks = 'Security'
     lib.osx.frameworks = 'ExceptionHandling'
-    lib.xcconfig = {
-      'HEADER_SEARCH_PATHS' =>  "\"${PODS_ROOT}/#{s.name}/dist/include\""
+    lib.pod_target_xcconfig = {
+      'HEADER_SEARCH_PATHS' =>  "${PODS_ROOT}/#{s.name}/dist/include"
     }
 
     lib.subspec 'all' do |all|
