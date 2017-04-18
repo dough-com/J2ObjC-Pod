@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.requires_arc = true
-  s.preserve_paths = 'dist'
+
 
   s.prepare_command = <<-CMD
     Scripts/download.sh
@@ -32,8 +32,7 @@ Pod::Spec.new do |s|
 
   s.default_subspec = 'lib/all'
 
-  s.source_files = 'dist/include/**/*.h'
-  # s.public_header_files = 'dist/include/**/*.h'
+  s.public_header_files = 'dist/include/**/*.h'
   s.header_mappings_dir = 'dist/include'
 
   s.subspec 'lib' do |lib|
