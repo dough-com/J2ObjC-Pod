@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'dist/include/**/*.h'
   s.header_mappings_dir = 'dist/include'
+  s.preserve_paths = 'dist'
 
   s.subspec 'lib' do |lib|
     lib.frameworks = 'Security'
