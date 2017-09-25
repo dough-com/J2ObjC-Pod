@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ev
 
-J2OBJC_VERSION="1.3.1"
+J2OBJC_VERSION="2.0.3"
 # SHA1_CHECKSUM=e9d2ae81dfbed6610af3ae744dd0636140e3c928
 
 if [[ -d dist ]]; then
